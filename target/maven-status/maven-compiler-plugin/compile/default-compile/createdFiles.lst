@@ -1,5 +1,7 @@
 com/ptidej/tools4cities/middleware/middleware/IConsumer.class
 com/ptidej/tools4cities/middleware/producers/JSONProducer.class
+com/ptidej/tools4citites/middleware/controllers/$ProducersController$Definition$Exec.class
+com/ptidej/tools4citites/middleware/controllers/ProducersController.class
 com/ptidej/tools4cities/middleware/middleware/AbstractProducer.class
 com/ptidej/tools4citites/middleware/controllers/$ConsumersController$Definition$Exec.class
 com/ptidej/tools4citites/middleware/controllers/$AbcController$Definition$Exec.class
@@ -19,7 +21,9 @@ com/ptidej/tools4citites/middleware/controllers/ConsumersController.class
 com/ptidej/tools4cities/middleware/middleware/IProducer.class
 com/ptidej/tools4cities/middleware/producers/CSVProducer.class
 com/ptidej/tools4citites/middleware/controllers/$ConsumersController$Definition.class
+com/ptidej/tools4citites/middleware/controllers/$ProducersController$Definition.class
 META-INF/micronaut/io.micronaut.inject.BeanDefinitionReference/com.ptidej.tools4citites.middleware.controllers.$ConsumersController$Definition
 com/ptidej/tools4citites/middleware/controllers/AbcController.class
 com/ptidej/tools4cities/middleware/operations/FilterOperation.class
+META-INF/micronaut/io.micronaut.inject.BeanDefinitionReference/com.ptidej.tools4citites.middleware.controllers.$ProducersController$Definition
 com/ptidej/tools4cities/middleware/middleware/OrderedSet.class

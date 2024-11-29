@@ -3,6 +3,8 @@ package com.ptidej.tools4citites.middleware.controllers;
 import java.io.File;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -70,7 +72,15 @@ public class ConsumersController {
 	        
 	        metadataObj.addProperty("description", (String) descriptionField.get(instance));
 	        metadataObj.addProperty("route", "/consumers/" + clazz.getSimpleName());
-	        metadataObj.addProperty("returnType", (String) resultField.toString());
+	        
+	        Type genericSuperclass = clazz.getGenericSuperclass();
+            if (genericSuperclass instanceof ParameterizedType) {
+                ParameterizedType parameterizedType = (ParameterizedType) genericSuperclass;
+                Type[] typeArguments = parameterizedType.getActualTypeArguments();
+                metadataObj.addProperty("returnType", typeArguments[0].getTypeName().toString());
+            } else {
+            	metadataObj.addProperty("returnType", "null");
+            }
 
 		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException | NoSuchFieldException | SecurityException | IllegalArgumentException | InvocationTargetException | NoSuchMethodException e ) {
 			e.printStackTrace();

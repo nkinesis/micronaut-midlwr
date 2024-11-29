@@ -13,6 +13,8 @@ import com.ptidej.tools4cities.middleware.middleware.IProducer;
  * This producer can load JSON from a file or remotely via an HTTP request.
  */
 public class JSONProducer extends AbstractProducer<JsonObject> implements IProducer<JsonObject> {
+	
+	public String description = "This producer can load JSON from a file or remotely via an HTTP request.";
 
 	public JSONProducer(String filePath, RequestOptions fileOptions) {
 		this.filePath = filePath;

@@ -14,6 +14,8 @@ import com.ptidej.tools4cities.middleware.middleware.IProducer;
  * This producer can load CSV from a file or remotely via an HTTP request.
  */
 public class CSVProducer extends AbstractProducer<String> implements IProducer<String> {
+	
+	public String description = "This producer can load CSV from a file or remotely via an HTTP request.";
 
 	public CSVProducer(String filePath, RequestOptions fileOptions) {
 		this.filePath = filePath;

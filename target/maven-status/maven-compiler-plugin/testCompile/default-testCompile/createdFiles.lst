@@ -1,0 +1,8 @@
+META-INF/micronaut/io.micronaut.inject.BeanDefinitionReference/com.ptidej.$HelloTest$Definition
+com/ptidej/AbcTest.class
+META-INF/micronaut/io.micronaut.inject.BeanDefinitionReference/com.ptidej.$AbcTest$Definition
+com/ptidej/$HelloTest$Definition.class
+com/ptidej/$AbcTest$Definition.class
+com/ptidej/HelloTest.class
+com/ptidej/$HelloTest$Definition$Exec.class
+com/ptidej/$AbcTest$Definition$Exec.class

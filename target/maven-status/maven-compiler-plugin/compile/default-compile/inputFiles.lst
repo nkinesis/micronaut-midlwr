@@ -1,0 +1,16 @@
+/Users/gabrielullmann/eclipse-javaee-workspace/micronaut_abc/src/main/java/com/ptidej/tools4cities/middleware/consumers/CSVFilterConsumer.java
+/Users/gabrielullmann/eclipse-javaee-workspace/micronaut_abc/src/main/java/com/ptidej/tools4cities/middleware/consumers/JSONConsumer.java
+/Users/gabrielullmann/eclipse-javaee-workspace/micronaut_abc/src/main/java/com/ptidej/tools4cities/middleware/middleware/AbstractConsumer.java
+/Users/gabrielullmann/eclipse-javaee-workspace/micronaut_abc/src/main/java/com/ptidej/tools4cities/middleware/middleware/AbstractProducer.java
+/Users/gabrielullmann/eclipse-javaee-workspace/micronaut_abc/src/main/java/com/ptidej/tools4cities/middleware/middleware/Application.java
+/Users/gabrielullmann/eclipse-javaee-workspace/micronaut_abc/src/main/java/com/ptidej/tools4cities/middleware/middleware/IConsumer.java
+/Users/gabrielullmann/eclipse-javaee-workspace/micronaut_abc/src/main/java/com/ptidej/tools4cities/middleware/middleware/IOperation.java
+/Users/gabrielullmann/eclipse-javaee-workspace/micronaut_abc/src/main/java/com/ptidej/tools4cities/middleware/middleware/IProducer.java
+/Users/gabrielullmann/eclipse-javaee-workspace/micronaut_abc/src/main/java/com/ptidej/tools4cities/middleware/middleware/OrderedSet.java
+/Users/gabrielullmann/eclipse-javaee-workspace/micronaut_abc/src/main/java/com/ptidej/tools4cities/middleware/middleware/RequestOptions.java
+/Users/gabrielullmann/eclipse-javaee-workspace/micronaut_abc/src/main/java/com/ptidej/tools4cities/middleware/operations/FilterOperation.java
+/Users/gabrielullmann/eclipse-javaee-workspace/micronaut_abc/src/main/java/com/ptidej/tools4cities/middleware/producers/CSVProducer.java
+/Users/gabrielullmann/eclipse-javaee-workspace/micronaut_abc/src/main/java/com/ptidej/tools4cities/middleware/producers/JSONProducer.java
+/Users/gabrielullmann/eclipse-javaee-workspace/micronaut_abc/src/main/java/com/ptidej/tools4citites/middleware/controllers/AbcController.java
+/Users/gabrielullmann/eclipse-javaee-workspace/micronaut_abc/src/main/java/com/ptidej/tools4citites/middleware/controllers/CSVFilterConsumerController.java
+/Users/gabrielullmann/eclipse-javaee-workspace/micronaut_abc/src/main/java/com/ptidej/tools4citites/middleware/controllers/ConsumersController.java

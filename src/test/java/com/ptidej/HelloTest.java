@@ -13,7 +13,7 @@ public class HelloTest {
     public void testHelloEndpoint(RequestSpecification spec) { 
         spec    
             .when()
-                .get("/abc")
+                .get("/helloWorld")
             .then()
                 .statusCode(200)
                 .body(containsString("Hello requester :)"));

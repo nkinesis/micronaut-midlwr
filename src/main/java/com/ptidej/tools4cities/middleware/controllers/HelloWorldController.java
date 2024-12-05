@@ -1,11 +1,11 @@
-package com.ptidej.tools4citites.middleware.controllers;
+package com.ptidej.tools4cities.middleware.controllers;
 
 import io.micronaut.http.annotation.Controller;
 import io.micronaut.http.annotation.Get;
 import io.micronaut.http.annotation.PathVariable;
 
-@Controller("/abc") 
-public class AbcController {
+@Controller("/helloWorld") 
+public class HelloWorldController {
 	
     @Get("/")
     public String index() {

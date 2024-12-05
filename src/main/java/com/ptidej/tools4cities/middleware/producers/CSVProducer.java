@@ -10,20 +10,13 @@ import com.ptidej.tools4cities.middleware.middleware.AbstractProducer;
 import com.ptidej.tools4cities.middleware.middleware.RequestOptions;
 import com.ptidej.tools4cities.middleware.middleware.IProducer;
 
-/**
- * This producer can load CSV from a file or remotely via an HTTP request.
- */
 public class CSVProducer extends AbstractProducer<String> implements IProducer<String> {
 	
-	public String description = "This producer can load CSV from a file or remotely via an HTTP request.";
-
 	public CSVProducer(String filePath, RequestOptions fileOptions) {
 		this.filePath = filePath;
 		this.fileOptions = fileOptions;
 	}
 
-	// I added the error handling to ensure I actually read my local file
-	
 	@Override
 	public void fetchData() throws Exception {
 		try {

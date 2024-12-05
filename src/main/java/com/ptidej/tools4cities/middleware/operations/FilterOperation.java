@@ -5,9 +5,6 @@ import java.util.stream.Collectors;
 
 import com.ptidej.tools4cities.middleware.middleware.IOperation;
 
-/**
- * This operation does string list filtering in two modes: exact (equals) or partial (contains) string match
- */
 public class FilterOperation implements IOperation {
 	String filterBy = "";
 	Boolean exactlyEqual = false;
@@ -19,7 +16,6 @@ public class FilterOperation implements IOperation {
 
 	@Override
 	public <String> List<String> perform(List<String> inputs) throws Exception {
-		//System.out.println(inputs);
 		List<String> filteredList = inputs;
 		if (!exactlyEqual) {
 			filteredList = inputs.stream()
@@ -32,5 +28,7 @@ public class FilterOperation implements IOperation {
 		}
 		return filteredList;
 	}
+	
+
 
 }

@@ -26,14 +26,14 @@ public abstract class AbstractProducer<E> implements IProducer<E> {
 	protected String filePath;
 	protected RequestOptions fileOptions;
 	private final List<IConsumer<E>> listOfConsumers = new ArrayList<>();
-
+	
 	@Override
-	public final void addObserver(final IConsumer<E> aConsumer) {
+	public void addObserver(final IConsumer<E> aConsumer) {
 		this.listOfConsumers.add(aConsumer);
 	}
 
 	@Override
-	public final void notifyObservers(final List<E> results) {
+	public void notifyObservers(final List<E> results) {
 		try {
 			for (final Iterator<IConsumer<E>> iterator = this.listOfConsumers.iterator(); iterator.hasNext();) {
 
@@ -113,6 +113,8 @@ public abstract class AbstractProducer<E> implements IProducer<E> {
 		Path path = Paths.get(this.filePath);
 		return Files.readAllBytes(path);
 	}
+
+
 	
 	
 

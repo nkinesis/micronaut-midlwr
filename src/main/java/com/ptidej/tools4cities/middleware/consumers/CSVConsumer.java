@@ -9,11 +9,11 @@ import com.ptidej.tools4cities.middleware.middleware.IConsumer;
 import com.ptidej.tools4cities.middleware.middleware.IOperation;
 import com.ptidej.tools4cities.middleware.middleware.IProducer;
 
-public class JSONConsumer extends AbstractConsumer<String> implements IConsumer<String> {
+public class CSVConsumer extends AbstractConsumer<String> implements IConsumer<String> {
 
-	private ArrayList<String> results;
-	
-	public JSONConsumer(final Set<IProducer<String>> setOfProducers, final Set<IOperation> setOfOperations) {
+	private List<String> results;
+
+	public CSVConsumer(final Set<IProducer<String>> setOfProducers, final Set<IOperation> setOfOperations) {
 		super(setOfProducers, setOfOperations);
 	}
 
@@ -28,7 +28,7 @@ public class JSONConsumer extends AbstractConsumer<String> implements IConsumer<
 			this.results = new ArrayList<String>();
 			this.results.addAll((ArrayList<String>) data);
 			for (IOperation operation : this.setOfOperations) { 
-				this.results = (ArrayList<String>) operation.perform(this.results);	
+				this.results = operation.perform(this.results);	
 		    }
 		} catch (Exception e) {
 			e.printStackTrace();

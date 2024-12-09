@@ -6,9 +6,9 @@ import java.util.List;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
-import com.ptidej.tools4cities.middleware.middleware.AbstractProducer;
-import com.ptidej.tools4cities.middleware.middleware.RequestOptions;
-import com.ptidej.tools4cities.middleware.middleware.IProducer;
+import com.ptidej.tools4cities.middleware.core.AbstractProducer;
+import com.ptidej.tools4cities.middleware.core.IProducer;
+import com.ptidej.tools4cities.middleware.core.RequestOptions;
 
 
 public class JSONProducer extends AbstractProducer<String> implements IProducer<String> {

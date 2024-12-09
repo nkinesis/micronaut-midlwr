@@ -3,7 +3,7 @@ package com.ptidej.tools4cities.middleware.operations;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import com.ptidej.tools4cities.middleware.middleware.IOperation;
+import com.ptidej.tools4cities.middleware.core.IOperation;
 
 public class FilterOperation implements IOperation {
 	String filterBy = "";

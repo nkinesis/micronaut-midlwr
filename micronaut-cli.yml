@@ -1,6 +1,6 @@
 applicationType: default
-defaultPackage: com.ptidej
+defaultPackage: com.ptidej.tools4cities.middleware.core
 testFramework: junit
 sourceLanguage: java
 buildTool: maven
-features: [app-name, http-client-test, java, java-application, junit, logback, maven, maven-enforcer-plugin, micronaut-aot, micronaut-http-validation, micronaut-test-rest-assured, netty-server, properties, readme, serialization-jackson, shade, static-resources]
+features: [app-name, http-client, http-client-test, java, java-application, junit, logback, maven, maven-enforcer-plugin, micronaut-aot, micronaut-http-validation, netty-server, properties, readme, security-annotations, security-oauth2, serialization-jackson, shade, spring, spring-web, static-resources]

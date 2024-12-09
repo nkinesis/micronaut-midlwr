@@ -4,12 +4,12 @@ import com.ptidej.tools4cities.middleware.core.AbstractProducer;
 import com.ptidej.tools4cities.middleware.core.IConsumer;
 import com.ptidej.tools4cities.middleware.core.IProducer;
 
-public class EnergyConsumptionProducer extends AbstractProducer<String> implements IProducer<String> {
+public class GeometryProducer extends AbstractProducer<String> implements IProducer<String> {
 
 	private String city = "";
-	private CSVProducer csvProducer = new CSVProducer("./src/test/data/montreal_energy_consumption.csv", null);
+	private JSONProducer jsonProducer = new JSONProducer("./src/test/data/montreal_geometries.json", null);
 	
-	public EnergyConsumptionProducer(String city) {
+	public GeometryProducer(String city) {
 		this.city = city;
 	}
 	
@@ -23,12 +23,12 @@ public class EnergyConsumptionProducer extends AbstractProducer<String> implemen
 //		}
 		
 //		this.jsonProducer = new JSONProducer(geometryPath, null);
-		this.csvProducer.fetchData();
+		this.jsonProducer.fetchData();
 	}
 	
 	@Override 
 	public void addObserver(final IConsumer<String> aConsumer) {
-		this.csvProducer.addObserver(aConsumer);
+		this.jsonProducer.addObserver(aConsumer);
 	}
 
 }

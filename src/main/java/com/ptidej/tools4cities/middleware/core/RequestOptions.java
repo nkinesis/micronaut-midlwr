@@ -1,4 +1,4 @@
-package com.ptidej.tools4cities.middleware.middleware;
+package com.ptidej.tools4cities.middleware.core;
 
 import java.util.HashMap;
 

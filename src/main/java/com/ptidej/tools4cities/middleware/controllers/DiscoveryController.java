@@ -11,8 +11,11 @@ import io.micronaut.http.annotation.Controller;
 import io.micronaut.http.annotation.Get;
 import io.micronaut.web.router.Router;
 import io.micronaut.web.router.UriRouteInfo;
+import jakarta.annotation.security.PermitAll;
 
 @Controller("/discover") 
+
+// TODO: make it work for all necessary routes
 public class DiscoveryController {
 	
 	private String getRouteMetadata(String prefix) {
@@ -41,11 +44,13 @@ public class DiscoveryController {
 	}
 	
     @Get("/consumers")
+    @PermitAll 
     public String consumers() {
     	return getRouteMetadata("/consumers");
     }
     
     @Get("/producers")
+    @PermitAll 
     public String producers() {
     	return getRouteMetadata("/producers");
     }

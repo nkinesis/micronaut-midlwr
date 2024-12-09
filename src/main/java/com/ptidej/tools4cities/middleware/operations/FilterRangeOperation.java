@@ -1,8 +1,9 @@
 package com.ptidej.tools4cities.middleware.operations;
 
+import java.util.ArrayList;
 import java.util.List;
 
-import com.ptidej.tools4cities.middleware.middleware.IOperation;
+import com.ptidej.tools4cities.middleware.core.IOperation;
 
 public class FilterRangeOperation implements IOperation {
 	String filterByStart = "";
@@ -32,9 +33,9 @@ public class FilterRangeOperation implements IOperation {
 		}
 		
 		if (startOffset > -1 && endOffset > -1) {
-			return filteredList.subList(startOffset, endOffset);
+			return new ArrayList<>(filteredList.subList(startOffset, endOffset));
 		} else if (startOffset > -1) {
-			return filteredList.subList(startOffset, inputSize - 1);
+			return new ArrayList<>(filteredList.subList(startOffset, inputSize - 1));
 		}
 		
 		return filteredList;

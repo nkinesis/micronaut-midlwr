@@ -2,7 +2,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.ptidej.tools4cities.middleware.core</groupId>
+  <groupId>net.ptidej.tools4cities.middleware.core</groupId>
   <artifactId>middleware</artifactId>
   <version>0.1</version>
   <packaging>${packaging}</packaging>
@@ -19,8 +19,8 @@
     <micronaut.version>4.7.1</micronaut.version>
     <micronaut.runtime>netty</micronaut.runtime>
     <micronaut.aot.enabled>false</micronaut.aot.enabled>
-    <micronaut.aot.packageName>com.ptidej.tools4cities.middleware.core.aot.generated</micronaut.aot.packageName>
-    <exec.mainClass>com.ptidej.tools4cities.middleware.core.Application</exec.mainClass>
+    <micronaut.aot.packageName>net.ptidej.tools4cities.middleware.core.aot.generated</micronaut.aot.packageName>
+    <exec.mainClass>net.ptidej.tools4cities.middleware.core.Application</exec.mainClass>
   </properties>
 
   <repositories>
@@ -180,7 +180,7 @@
             </path>
           </annotationProcessorPaths>
           <compilerArgs>
-            <arg>-Amicronaut.processing.group=com.ptidej.tools4cities.middleware.core</arg>
+            <arg>-Amicronaut.processing.group=net.ptidej.tools4cities.middleware.core</arg>
             <arg>-Amicronaut.processing.module=middleware</arg>
           </compilerArgs>
         </configuration>

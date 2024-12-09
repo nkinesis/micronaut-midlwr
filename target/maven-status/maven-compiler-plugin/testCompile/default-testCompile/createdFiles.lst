@@ -1,4 +1,3 @@
-com/ptidej/AbcTest.class
-com/ptidej/$AbcTest$Definition.class
-META-INF/micronaut/io.micronaut.inject.BeanDefinitionReference/com.ptidej.$AbcTest$Definition
-com/ptidej/$AbcTest$Definition$Exec.class
+net/ptidej/$AbcTest$Definition$Exec.class
+net/ptidej/$AbcTest$Definition.class
+META-INF/micronaut/io.micronaut.inject.BeanDefinitionReference/net.ptidej.$AbcTest$Definition

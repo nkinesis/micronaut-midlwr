@@ -22,8 +22,8 @@ import jakarta.annotation.security.PermitAll;
 public class DiscoveryController {
 	
 	private String getRouteMetadata(String prefix) {
-		 JsonArray routes = new JsonArray();
-		 Set<JsonObject> resultSet = new HashSet<>();
+		 JsonArray routesToDisplay = new JsonArray();
+		 Set<JsonObject> uniqueRoutes = new HashSet<>();
     	 try (ApplicationContext context = ApplicationContext.run()) {
              Router router = context.getBean(Router.class);
              @NonNull Stream<UriRouteInfo<?, ?>> routeStream = router.uriRoutes();
@@ -39,16 +39,17 @@ public class DiscoveryController {
             		 routeObj.addProperty("name", routeName);
             		 routeObj.addProperty("method", routeMethod);
                 	 routeObj.addProperty("description", "This route produces " + producedType);
-                	 resultSet.add(routeObj);
+                	 uniqueRoutes.add(routeObj);
             	 }
            	 
              });
              
-             for (JsonObject xyz : resultSet) {
-            	 routes.add(xyz);
+             // add routes to a set to remove duplicates due to mime-types, HTTP methods, etc.
+             for (JsonObject route : uniqueRoutes) {
+            	 routesToDisplay.add(route);
              }
              
-            return routes.toString();
+            return routesToDisplay.toString();
          }
 	}
 	

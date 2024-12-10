@@ -5,7 +5,7 @@ import net.ptidej.tools4cities.middleware.core.IConsumer;
 import net.ptidej.tools4cities.middleware.core.IProducer;
 
 public class EnergyConsumptionProducer extends AbstractProducer<String> implements IProducer<String> {
-
+	// TODO: how to work with different data sets?
 	private String city = "";
 	private CSVProducer csvProducer = new CSVProducer("./src/test/data/montreal_energy_consumption.csv", null);
 	

@@ -27,6 +27,7 @@ public class SequentialRunner extends MiddlewareEntity implements IRunner {
 	
 	public SequentialRunner (JsonObject steps) {
 		this.steps = steps;
+		this.setMetadata("role", "runner");
 	}
 	
 	public boolean isDone() {

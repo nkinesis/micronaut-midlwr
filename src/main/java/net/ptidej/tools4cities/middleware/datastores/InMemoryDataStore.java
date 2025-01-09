@@ -19,7 +19,9 @@ public class InMemoryDataStore extends MiddlewareEntity implements IDataStore{
     private static final InMemoryDataStore storeInstance = new InMemoryDataStore();
 
     // Private constructor prevents instantiation (this is a singleton)
-    private InMemoryDataStore() {}
+    private InMemoryDataStore() {
+		this.setMetadata("role", "datastore");
+    }
 
     // Public method to provide access to the instance
     public static InMemoryDataStore getInstance() {
@@ -39,6 +41,10 @@ public class InMemoryDataStore extends MiddlewareEntity implements IDataStore{
 	@Override
 	public void delete(String key) {
 		map.remove(key);
+	}
+	
+	public void truncate() {
+		this.map = new HashMap<>();
 	}
 
 }

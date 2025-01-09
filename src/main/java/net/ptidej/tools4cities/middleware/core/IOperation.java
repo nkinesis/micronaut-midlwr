@@ -1,9 +1,22 @@
 package net.ptidej.tools4cities.middleware.core;
 
-import java.util.List;
+import java.util.ArrayList;
 
-public interface IOperation {
+/**
+*
+* The Operation entity is responsible for:
+* - Applying a transformation to an ArrayList of a type
+* - Notify observers when the transformation is completed
+* 
+*/
+public interface IOperation<E> {
 
-	<E> List<E> perform(List<E> inputs) throws Exception;
-
+	// 1 - prepare producer
+	void addObserver(final IRunner aRunner);
+		
+	// 2 - perform operation
+	ArrayList<E> apply(ArrayList<E> input);
+		
+	// 3 - notify when done
+	void notifyObservers();
 }

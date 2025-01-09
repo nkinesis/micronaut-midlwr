@@ -1,13 +1,28 @@
 package net.ptidej.tools4cities.middleware.core;
 
-import java.util.List;
-
+/**
+*
+* The Producer entity is responsible for:
+* - Fetching data
+* - Applying a operation on the result
+* - Notify observers when both tasks are done
+* 
+*/
 public interface IProducer<E> {
 	
-	void fetchData() throws Exception;
-
-	void addObserver(final IConsumer<E> aConsumer);
+	// 1 - prepare producer
+	void addObserver(final IRunner aRunner);
+	void setOperation(IOperation operation);
 	
-	void notifyObservers(final List<E> results);
+	// 2 - fetch data
+	void fetch();
+	
+	// 3 - transform data and notify when done
+	void applyOperation();
+	void notifyObservers();
+	
+	// 4 - output data
+	String getResultJSONString();
+	
 
 }

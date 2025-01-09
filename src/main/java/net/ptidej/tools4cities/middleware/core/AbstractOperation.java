@@ -1,0 +1,47 @@
+package net.ptidej.tools4cities.middleware.core;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Set;
+
+/**
+*
+* This implements features common to all Operations, such as notifying Runners
+* 
+*/
+public abstract class AbstractOperation<E> extends MiddlewareEntity implements IOperation<E> {
+
+	private Set<IRunner> runners = new HashSet<>();
+	
+	public AbstractOperation() {
+		this.setMetadata("role", "operation");
+	}
+
+	@Override
+	public void addObserver(final IRunner aRunner) {
+		this.runners.add(aRunner);
+	}
+	
+
+	@Override
+	public ArrayList<E> apply(ArrayList<E> input) {
+		System.out.println("Unimplemented method! This method must be implemented by a subclass.");
+		return null;
+	}
+
+	@Override
+	public void notifyObservers() {
+		try {
+			for (final Iterator<IRunner> iterator = this.runners.iterator(); iterator.hasNext();) {
+
+				final IRunner runner = iterator.next();
+				runner.newOperationApplied(this);
+			}
+
+		} catch (final Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+}

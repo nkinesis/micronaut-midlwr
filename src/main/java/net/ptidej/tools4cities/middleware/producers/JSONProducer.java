@@ -21,30 +21,24 @@ public class JSONProducer extends AbstractProducer<JsonObject> implements IProdu
 
 	@Override
 	public void fetch() {
-		 
-		try {
-			
-			final ArrayList<JsonObject> result = new ArrayList<JsonObject>();
-			String jsonString = new String(this.fetchFromPath());
-			
-			// convert JSON string to object
-			final JsonElement jsonElement = JsonParser.parseString(jsonString);
-			
-			JsonObject jsonObject = new JsonObject();
-			if (jsonElement.isJsonArray()) {
-				jsonObject.add("result", jsonElement);
-			} else {
-				jsonObject = jsonElement.getAsJsonObject();
-			}
-			
-			result.add(jsonObject);
-			this.result = result;
-			this.notifyObservers();
-			
-		} catch (Exception e) {
-			e.printStackTrace();
+				
+		final ArrayList<JsonObject> result = new ArrayList<JsonObject>();
+		String jsonString = new String(this.fetchFromPath());
+		
+		// convert JSON string to object
+		final JsonElement jsonElement = JsonParser.parseString(jsonString);
+		
+		JsonObject jsonObject = new JsonObject();
+		if (jsonElement.isJsonArray()) {
+			jsonObject.add("result", jsonElement);
+		} else {
+			jsonObject = jsonElement.getAsJsonObject();
 		}
-
+		
+		result.add(jsonObject);
+		this.result = result;
+		this.notifyObservers();
+		
 	}
 
 }

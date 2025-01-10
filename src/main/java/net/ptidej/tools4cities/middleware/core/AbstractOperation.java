@@ -6,14 +6,14 @@ import java.util.Iterator;
 import java.util.Set;
 
 /**
-*
-* This implements features common to all Operations, such as notifying Runners
-* 
-*/
+ *
+ * This implements features common to all Operations, such as notifying Runners
+ * 
+ */
 public abstract class AbstractOperation<E> extends MiddlewareEntity implements IOperation<E> {
 
 	private Set<IRunner> runners = new HashSet<>();
-	
+
 	public AbstractOperation() {
 		this.setMetadata("role", "operation");
 	}
@@ -22,7 +22,6 @@ public abstract class AbstractOperation<E> extends MiddlewareEntity implements I
 	public void addObserver(final IRunner aRunner) {
 		this.runners.add(aRunner);
 	}
-	
 
 	@Override
 	public ArrayList<E> apply(ArrayList<E> input) {
@@ -32,16 +31,12 @@ public abstract class AbstractOperation<E> extends MiddlewareEntity implements I
 
 	@Override
 	public void notifyObservers() {
-		try {
-			for (final Iterator<IRunner> iterator = this.runners.iterator(); iterator.hasNext();) {
 
-				final IRunner runner = iterator.next();
-				runner.newOperationApplied(this);
-			}
-
-		} catch (final Exception e) {
-			e.printStackTrace();
+		for (final Iterator<IRunner> iterator = this.runners.iterator(); iterator.hasNext();) {
+			final IRunner runner = iterator.next();
+			runner.newOperationApplied(this);
 		}
+
 	}
 
 }

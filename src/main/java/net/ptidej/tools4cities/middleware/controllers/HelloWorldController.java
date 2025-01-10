@@ -6,18 +6,18 @@ import io.micronaut.http.annotation.PathVariable;
 import io.micronaut.security.annotation.Secured;
 import io.micronaut.security.rules.SecurityRule;
 
-@Controller("/helloWorld") 
+@Controller("/helloWorld")
 @Secured(SecurityRule.IS_ANONYMOUS)
 public class HelloWorldController {
-	
-    @Get("/")
-    public String index() {
-        return "Hello requester :)";
-    }
-	
-    @Get("/{name}")
-    public String name(@PathVariable String name) {
-        return "Hello " + name;
-    }
-    
+
+	@Get("/")
+	public String index() {
+		return "Hello requester :)";
+	}
+
+	@Get("/{name}")
+	public String name(@PathVariable String name) {
+		return "Hello " + name;
+	}
+
 }

@@ -3,6 +3,8 @@
  */
 package net.ptidej.tools4cities.middleware.core;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
@@ -25,10 +27,11 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
 /**
-*
-* This implements features common to all Producers, such as reading data from files and URLs and notifying runners
-* 
-*/
+ *
+ * This implements features common to all Producers, such as reading data from
+ * files and URLs and notifying runners
+ * 
+ */
 public abstract class AbstractProducer<E> extends MiddlewareEntity implements IProducer<E> {
 
 	protected String filePath;
@@ -36,21 +39,21 @@ public abstract class AbstractProducer<E> extends MiddlewareEntity implements IP
 	private IOperation<E> operation;
 	private Set<IRunner> runners = new HashSet<>();
 	protected ArrayList<E> result;
-	
+
 	public AbstractProducer() {
 		this.setMetadata("role", "producer");
 	}
-	
+
 	@Override
 	public void setOperation(IOperation operation) {
 		this.operation = operation;
 	}
-	
+
 	@Override
 	public void addObserver(final IRunner aRunner) {
 		this.runners.add(aRunner);
 	}
-	
+
 	@Override
 	public void fetch() {
 		System.out.println("Unimplemented method! This method must be implemented by a subclass.");
@@ -64,12 +67,11 @@ public abstract class AbstractProducer<E> extends MiddlewareEntity implements IP
 				final IRunner runner = iterator.next();
 				runner.newDataAvailable(this);
 			}
-
 		} catch (final Exception e) {
 			e.printStackTrace();
 		}
 	}
-	
+
 	@Override
 	public void applyOperation() {
 		// if an operation exists, apply it, notify anyway after done
@@ -78,10 +80,12 @@ public abstract class AbstractProducer<E> extends MiddlewareEntity implements IP
 		}
 		this.notifyObservers();
 	}
-	
+
 	@Override
-	// if this is a JsonObject, JsonElement or JsonArray producer, stringify the JsonObject
-	// else, forcibly cast the result into string, but also put it in a JSON for return
+	// if this is a JsonObject, JsonElement or JsonArray producer, stringify the
+	// JsonObject
+	// else, forcibly cast the result into string, but also put it in a JSON for
+	// return
 	public String getResultJSONString() {
 		JsonArray jsonArray = new JsonArray();
 		if (this.result == null) {
@@ -101,7 +105,7 @@ public abstract class AbstractProducer<E> extends MiddlewareEntity implements IP
 		}
 		return jsonArray.toString();
 	}
-	
+
 	/**
 	 * Fetch file via HTTP GET or POST
 	 */
@@ -112,11 +116,13 @@ public abstract class AbstractProducer<E> extends MiddlewareEntity implements IP
 		Builder requestBuilder = HttpRequest.newBuilder().uri(endpointURI);
 		HttpClient client = HttpClient.newHttpClient();
 
-		// TODO: we should support idempotent HTTP methods only to avoid unexpected side effects (e.g. a producer changing data in the API)
-		// for now, I kept support to PUT and POST because they are needed for Hub API auth
+		// TODO: we should support idempotent HTTP methods only to avoid unexpected side
+		// effects (e.g. a producer changing data in the API)
+		// for now, I kept support to PUT and POST because they are needed for Hub API
+		// auth
 		switch (this.fileOptions.method) {
 		case "HEAD":
-			
+
 			break;
 		case "GET":
 			requestBuilder.GET();
@@ -144,14 +150,14 @@ public abstract class AbstractProducer<E> extends MiddlewareEntity implements IP
 
 		HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 		System.out.println(response.statusCode());
-		
+
 		if (this.fileOptions.returnHeaders) {
 			Gson gson = new Gson();
 			return gson.toJson(response.headers().map()).getBytes();
 		}
 		return response.body().getBytes();
 	}
-	
+
 	/**
 	 * Fetch file from filesystem
 	 */
@@ -159,16 +165,16 @@ public abstract class AbstractProducer<E> extends MiddlewareEntity implements IP
 		Path path = Paths.get(this.filePath);
 		return Files.readAllBytes(path);
 	}
-	
-    protected byte[] fetchFromPath() {
+
+	protected byte[] fetchFromPath() {
 		try {
 			// Read the content of the file into a string
-			return Files.readAllBytes(Paths.get(filePath));
-		} catch (Exception e) {
-			throw new RuntimeException("Error reading file", e);
+			return Files.readAllBytes(Paths.get(this.filePath));
+		} catch (FileNotFoundException e) {
+			throw new RuntimeException("File not found: " + this.filePath, e);
+		} catch (IOException e) {
+			throw new RuntimeException("Cannot read file: " + this.filePath, e);
 		}
-    }
-
-
+	}
 
 }

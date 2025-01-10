@@ -6,22 +6,23 @@ import net.ptidej.tools4cities.middleware.core.AbstractOperation;
 import net.ptidej.tools4cities.middleware.core.IOperation;
 
 /**
-*
-* This operations searches for a sequence in a string, and replaces this sequence with another one.
-*  
-*/
+ *
+ * This operations searches for a sequence in a string, and replaces this
+ * sequence with another one.
+ * 
+ */
 public class StringReplaceOperation extends AbstractOperation<String> implements IOperation<String> {
 
 	private String searchFor = "";
 	private String replaceBy = "";
-	
+
 	public StringReplaceOperation(String searchFor, String replaceBy) {
-		
+
 		this.searchFor = searchFor;
 		this.replaceBy = replaceBy;
-		
+
 	}
-	
+
 	@Override
 	public ArrayList<String> apply(ArrayList<String> input) {
 		ArrayList<String> resultSet = new ArrayList<>();

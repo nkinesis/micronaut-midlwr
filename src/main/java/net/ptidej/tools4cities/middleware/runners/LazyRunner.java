@@ -15,13 +15,13 @@ import net.ptidej.tools4cities.middleware.datastores.InMemoryDataStore;
 public class LazyRunner extends AbstractRunner implements IRunner {
 
 	private IProducer<?> producer;
-	
+
 	public LazyRunner(IProducer<?> producer) {
 		this.producer = producer;
 	}
-	
+
 	@Override
-	public void runSteps() {
+	public void runSteps() throws Exception {
 		if (this.producer != null) {
 			this.producer.addObserver(this);
 			this.producer.fetch();

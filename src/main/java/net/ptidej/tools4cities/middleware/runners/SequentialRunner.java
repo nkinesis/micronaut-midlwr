@@ -4,11 +4,11 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
+import net.ptidej.tools4cities.middleware.core.AbstractRunner;
 import net.ptidej.tools4cities.middleware.core.IDataStore;
 import net.ptidej.tools4cities.middleware.core.IOperation;
 import net.ptidej.tools4cities.middleware.core.IProducer;
 import net.ptidej.tools4cities.middleware.core.IRunner;
-import net.ptidej.tools4cities.middleware.core.MiddlewareEntity;
 import net.ptidej.tools4cities.middleware.datastores.InMemoryDataStore;
 import net.ptidej.tools4cities.middleware.operations.StringReplaceOperation;
 import net.ptidej.tools4cities.middleware.producers.StringProducer;
@@ -19,23 +19,13 @@ import net.ptidej.tools4cities.middleware.producers.StringProducer;
 * For example: P1 + O1 = P1'. P1' + O2 -> P1'', etc.
 *  
 */
-public class SequentialRunner extends MiddlewareEntity implements IRunner {
+public class SequentialRunner extends AbstractRunner implements IRunner {
 
-	private boolean isDone = false;
 	private JsonObject steps = null;
 	private int operationCounter = 0;
 	
 	public SequentialRunner (JsonObject steps) {
 		this.steps = steps;
-		this.setMetadata("role", "runner");
-	}
-	
-	public boolean isDone() {
-		return this.isDone;
-	}
-	
-	private void setAsDone() {
-		this.isDone = true;
 	}
 	
 	@Override

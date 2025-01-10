@@ -1,10 +1,10 @@
 package net.ptidej.tools4cities.middleware.runners;
 
+import net.ptidej.tools4cities.middleware.core.AbstractRunner;
 import net.ptidej.tools4cities.middleware.core.IDataStore;
 import net.ptidej.tools4cities.middleware.core.IOperation;
 import net.ptidej.tools4cities.middleware.core.IProducer;
 import net.ptidej.tools4cities.middleware.core.IRunner;
-import net.ptidej.tools4cities.middleware.core.MiddlewareEntity;
 import net.ptidej.tools4cities.middleware.datastores.InMemoryDataStore;
 
 /**
@@ -12,24 +12,14 @@ import net.ptidej.tools4cities.middleware.datastores.InMemoryDataStore;
  * This Runner runs a single Producer with no Operations. For test only.
  * 
  */
-public class LazyRunner extends MiddlewareEntity implements IRunner {
+public class LazyRunner extends AbstractRunner implements IRunner {
 
-	private boolean isDone = false;
 	private IProducer<?> producer;
 	
 	public LazyRunner(IProducer<?> producer) {
 		this.producer = producer;
 	}
 	
-	public boolean isDone() {
-		return this.isDone;
-	}
-	
-	private void setAsDone() {
-		this.isDone = true;
-	}
-	
-
 	@Override
 	public void runSteps() {
 		if (this.producer != null) {

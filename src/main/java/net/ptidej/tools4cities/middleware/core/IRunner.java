@@ -12,10 +12,17 @@ package net.ptidej.tools4cities.middleware.core;
 */
 public interface IRunner  {
 	
+	// execution
 	void runSteps();
 	void applyNextOperation(IProducer<?> producer);
+	void storeResults(IProducer<?> producer);
+	
+	// execution state control
+	boolean isDone();
+    void setAsDone();
+	
+	// receiving notifications from other entities
 	void newOperationApplied(IOperation<?> operation);
     void newDataAvailable(IProducer<?> producer);
-	void storeResults(IProducer<?> producer);
 
 }
